@@ -1,7 +1,28 @@
-Explain event delegation.
+## Explain event delegation.
+```
+Event delegation
+Capturing and bubbling allow us to implement one of most powerful event handling patterns called event delegation.
 
-Explain how this works in JavaScript.
-Can you give an example of one of the ways that working with this has changed in ES6?
+The idea is that if we have a lot of elements handled in a similar way, then instead of assigning a handler to each of them – we put a single handler on their common ancestor.
+
+In the handler we get event.target to see where the event actually happened and handle it.
+```
+
+
+### Explain how "this" works in JavaScript. Can you give an example of one of the ways that working with this has changed in ES6?
+```
+What is this?
+The JavaScript this keyword refers to the object it belongs to.
+
+It has different values depending on where it is used:
+
+- In a method, this refers to the owner object.
+- Alone, this refers to the global object.
+- In a function, this refers to the global object.
+- In a function, in strict mode, this is undefined.
+- In an event, this refers to the element that received the event.
+- Methods like call(), and apply() can refer this to any object.
+```
 
 Explain how prototypal inheritance works.
 What's the difference between a variable that is: null, undefined or undeclared?
