@@ -24,10 +24,42 @@ It has different values depending on where it is used:
 - Methods like call(), and apply() can refer this to any object.
 ```
 
-Explain how prototypal inheritance works.
+### Explain how prototypal inheritance works.
+```
+In JavaScript, all functions are also objects, which means that they can have properties. And as it so happens, they all have a property called `prototype`, which is also an object.
+
+function foo() {
+}
+typeof foo.prototype // ‘object’
+
+JavaScript uses an inheritance model called “differential inheritance”. What that means is that methods aren’t copied from parent to child. Instead, children have an “invisible link” back to their parent object.
+
+function Dog() {
+}
+Dog.prototype.bark = function() {
+ console.log(‘woof!’);
+};
+var fido = new Dog();
+fido.bark(); // ‘woof!’
+
+What actually happens when I write fido.bark() is this:
+1. The JS engine looks for a property called bark on our fido object.
+2. It doesn’t find one, so it looks “up the prototype chain” to fido’s parent, which is Dog.prototype.
+3. It finds Dog.prototype.bark, and calls it with this bound to fido.
+
+There’s really no such property as fido.bark. It doesn’t exist. Instead, fido has access to the bark() method on Dog.prototype because it’s an instance of Dog. This is the “invisible link” I mentioned. More commonly, it’s referred to as the “prototype chain”.
+
+```
+
 What's the difference between a variable that is: null, undefined or undeclared?
 How would you go about checking for any of these states?
-What is a closure, and how/why would you use one?
+
+### What is a closure, and how/why would you use one?
+
+```
+In javascript, an inner function enclose the scope along with its out functions lexical scope is called closure.
+```
+
 What language constructions do you use for iterating over object properties and array items?
 
 Can you describe the main difference between the Array.forEach() loop and Array.map() methods and why you would pick one versus the other?
