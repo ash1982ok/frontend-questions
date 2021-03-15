@@ -51,6 +51,14 @@ There’s really no such property as fido.bark. It doesn’t exist. Instead, fid
 
 ```
 
+### What is the difference in Debouncing & Throttling?
+
+```
+Debouncing - Skipping function call between two events execution like two keypress event in search bar.
+
+Throttling - Halts calling of an api/function between two function call till an interval is over.
+```
+
 What's the difference between a variable that is: null, undefined or undeclared?
 How would you go about checking for any of these states?
 
